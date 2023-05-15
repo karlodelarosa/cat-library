@@ -3,7 +3,7 @@ import PostRequests from "./verbs/PostRequests";
 
 /*
 * Request class the official handler for API requests
-* This is where urls are being set and actually calls api endpoint
+* This is where urls are being set and calls api verbs
 */
 export default class Request {
   protected url: string = '';
