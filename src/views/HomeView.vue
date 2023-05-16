@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import FormGroup from '@/components/molecule/FormGroup.vue';
+import SelectBreeds from '@/components/atom/SelectBreeds.vue';
 
 const mockData = [
   {
@@ -78,18 +80,11 @@ const showDetails = (id: any) => {
 </script>
 
 <template>
-  <main>
     <div class="container py-5">
       <section class="search_form mb-5">
-        <div>
-          <label for="cat_breed" class="fw-bold fs-6">BREEDS</label>
-          <select id="cat_breed" class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
+        <FormGroup label-name="BREEDS">
+          <SelectBreeds />
+        </FormGroup>
       </section>
 
       <section class="main-content">
@@ -114,98 +109,4 @@ const showDetails = (id: any) => {
         </div>
       </section>
     </div>
-  </main>
 </template>
-
-<style>
-.bg-svg-wave > svg {
-  filter: drop-shadow(0px -13px 14px rgb(0 0 0 / 0.4));
-  transform: rotate(180deg);
-  position: fixed;
-  z-index: -1;
-}
-
-.search_form {
-  width: 300px;
-}
-
-.card-columns {
-  margin-bottom: 100px;
-}
-
-.cat-card {
-  width: 100%;
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.cat-card > .cat-img-container {
-  width: 100%;
-}
-
-.cat-card > .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-}
-
-.cat-card > .overlay:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-  opacity: 1;
-}
-
-.cat-card > .overlay > button {
-  width: 70%;
-  margin-bottom: 20px;
-}
-
-.cat-card > .cat-img-container > img {
-  width: 100%;
-  object-fit: fit;
-}
-
-.cat-card > button {
-  position: absolute;
-  bottom: 5px;
-  left: 0;
-}
-
-@media (max-width: 575.98px) {
-  .card-columns {
-    column-count: 1;
-  }
-}
-
-@media (min-width: 576px) {
-  .card-columns {
-    column-count: 2;
-  }
-}
-
-@media (min-width: 768px) {
-  .card-columns {
-    column-count: 3;
-  }
-}
-
-@media (min-width: 992px) {
-  .card-columns {
-    column-count: 4;
-  }
-}
-
-@media (min-width: 1200px) {
-  .card-columns {
-    column-count: 4;
-  }
-}
-</style>
