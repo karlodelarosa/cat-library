@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import Breed from './core/application/Breed'
+
+const breed = new Breed();
+breed.process()
+
 </script>
 
 <template>

@@ -1,13 +1,14 @@
+import type ServiceInterface from "@/core/domain/contract/ServiceInterface";
 import type BreedRepository from "@/core/infrastructure/repository/BreedRepository";
 
-export default class BreedService {
-    constructor(protected breedRepository: BreedRepository) {}
+export default class BreedService implements ServiceInterface {
+  constructor(protected breedRepository: BreedRepository) { }
 
-    process() {
-        const result = this.breedRepository.fetchAll();
+  process() {
+    const result = this.breedRepository.fetchAll();
 
-        return {
-            result
-        }
+    return {
+      result
     }
+  }
 }

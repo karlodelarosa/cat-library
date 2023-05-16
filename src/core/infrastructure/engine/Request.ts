@@ -1,5 +1,6 @@
 import GetRequests from "./verbs/GetRequests";
 import PostRequests from "./verbs/PostRequests";
+import { isOk } from "@/core/domain/specification/isOk";
 
 /*
 * Request class the official handler for API requests
@@ -24,11 +25,14 @@ export default class Request {
     return this.url
   }
 
-  protected requestGetAll() {
-    return this.getRequests._getAll(this.getUrl())
+  async requestGetAll() {
+    const { data, status } = await this.getRequests._getAll(this.getUrl())
+    if (isOk(status)) {
+      return data
+    }
   }
 
-  protected requestGet(params: {}) {
+  requestGet(params: {}) {
     return this.getRequests._get(this.getUrl(), params)
   }
 

@@ -1,24 +1,24 @@
-import type { Id } from "@/core/domain/types/Id.types"
-import ApiRequest from "../engine/ApiRequest"
+import type { Id } from "@/core/domain/types/Id.type"
+import Request from "../engine/Request"
 
 /*
 * Repository classes helps you identify what kind
 * of information your are requesting
 */
 export default class BreedRepository {
-    protected apiRequest: ApiRequest
+    protected request: Request
     protected requestUrl: string = ''
 
     constructor(requestUrl: string) {
-        this.apiRequest = new ApiRequest()
+        this.request = new Request()
         this.requestUrl = requestUrl;
     }
     
-    fetchAll() {
-        this.apiRequest.get(this.requestUrl)
+    async fetchAll() {
+        return await this.request.setUrl(this.requestUrl).requestGetAll()
     }
 
     fetchById(params: Id) {
-        this.apiRequest.get(this.requestUrl, params)
+        // return this.apiRequest.get(this.requestUrl, params)
     }
 }
