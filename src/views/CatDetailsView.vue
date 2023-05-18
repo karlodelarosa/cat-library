@@ -97,12 +97,13 @@ const catInfo: any = computed(() => store.GET_selectedCatInfo)
                     </dl>
                   </div>
 
-                  <div>
-                    <HeartOutlined />
-                  </div>
-                  <!-- <a href="https://cdn2.thecatapi.com/images" :download="`${catId}.jpg`" class="btn btn-primary">  
-                    Download Photo
-                  </a> -->
+                  <a
+                    :href="`https://www.google.com/search?q=${catInfo.breeds[0].name}`"
+                    target="_blank"
+                    class="btn btn-primary"
+                  >
+                    Read more
+                  </a>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { computed } from 'vue'
 import { useCatsStore } from '@/stores/cats'
 import type CommandInterface from '@/core/domain/contract/CommandInterface'
 import CatInformationRepository from '@/core/infrastructure/repository/CatInformationRepository'
+import { API_SEARCH_BY_BREED } from '@/core/infrastructure/Constants'
 
 export default class GetCatsListByBreed implements CommandInterface {
   protected selectedBreed: string = ''
@@ -16,9 +17,7 @@ export default class GetCatsListByBreed implements CommandInterface {
   async handle(): Promise<void> {
     const store = useCatsStore()
     const selectedCats = computed(() => store.GET_selectedCatsByBreed)
-    const catInformationRepository = new CatInformationRepository(
-      `https://api.thecatapi.com/v1/images/search`
-    )
+    const catInformationRepository = new CatInformationRepository(API_SEARCH_BY_BREED)
 
     const params = {
       page: store.GET_currentPage,

@@ -2,9 +2,10 @@ import BreedRepository from '@/core/infrastructure/repository/BreedRepository'
 import type ServiceInterface from '../domain/contract/ServiceInterface'
 import { useBreedStore } from '@/stores/breeds'
 import { isNull } from '../domain/specification/isNull'
+import { API_BREEDS } from '@/core/infrastructure/Constants'
 
 export default class Breed implements ServiceInterface {
-  protected readonly breedEndpoint = 'https://api.thecatapi.com/v1/breeds'
+  protected readonly breedEndpoint = API_BREEDS
 
   async process(): Promise<void> {
     const store = useBreedStore()

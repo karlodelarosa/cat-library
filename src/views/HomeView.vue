@@ -73,7 +73,7 @@ const showMore = () => {
         </div>
       </template>
       <template v-else>
-        <div>No breed selected</div>
+        <div class="alert alert-info" role="alert">No breed selected yet.</div>
       </template>
     </section>
   </div>

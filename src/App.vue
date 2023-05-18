@@ -10,7 +10,11 @@ breed.process()
 <template>
   <BaseLayout>
     <main>
-      <RouterView />
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
   </BaseLayout>
 </template>
