@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { useCatsStore } from "@/stores/cats"
-import Cat from '@/core/application/Cat';
+import { useCatsStore } from '@/stores/cats'
+import Cat from '@/core/application/Cat'
 import GetCatInformationById from '@/core/application/command/GetCatInformationById'
 import StarRating from '@/components/atom/StarRating.vue'
 import HeartOutlined from '@/components/atom/svg/HeartOutlined.vue'
@@ -16,12 +16,10 @@ const back = () => {
 }
 
 const catId = route.params.id.toString()
-const catService = new Cat();
+const catService = new Cat()
 catService.command(new GetCatInformationById(catId))
 
 const catInfo: any = computed(() => store.GET_selectedCatInfo)
-
-
 </script>
 
 <template>
@@ -52,14 +50,13 @@ const catInfo: any = computed(() => store.GET_selectedCatInfo)
             <div class="card overflow-hiden">
               <div class="row card-body p-0">
                 <div class="col-sm-6 img-wrapper">
-                  <div class="img-container" :style="{
-                    'background-image': `url('${catInfo.url}')`
-                  }"></div>
-                  <img
-                    class="actual-img"
-                    :src="catInfo.url"
-                    alt="sans"
-                  />
+                  <div
+                    class="img-container"
+                    :style="{
+                      'background-image': `url('${catInfo.url}')`
+                    }"
+                  ></div>
+                  <img class="actual-img" :src="catInfo.url" alt="sans" />
                 </div>
 
                 <div class="col-sm-6 p-5">
@@ -78,7 +75,7 @@ const catInfo: any = computed(() => store.GET_selectedCatInfo)
                   </div>
 
                   <div class="cat-attribute">
-                    <dt>
+                    <dl>
                       <dd class="fw-normal d-flex flex-row align-items-center">
                         <span class="me-2">Stranger Friendly:</span>
                         <StarRating :rating="catInfo.breeds[0].stranger_friendly" />
@@ -97,12 +94,11 @@ const catInfo: any = computed(() => store.GET_selectedCatInfo)
                         <span class="me-2">Health Issues:</span>
                         <StarRating :rating="catInfo.breeds[0].health_issues" />
                       </dd>
-                    </dt>
+                    </dl>
                   </div>
 
                   <div>
-                    <HeartOutlined/>
-
+                    <HeartOutlined />
                   </div>
                   <!-- <a href="https://cdn2.thecatapi.com/images" :download="`${catId}.jpg`" class="btn btn-primary">  
                     Download Photo

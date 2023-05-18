@@ -55,7 +55,11 @@ const showMore = () => {
               </div>
 
               <div class="overlay">
-                <button @click="showDetails(data.id)" type="button" class="btn btn-primary rounded-pill">
+                <button
+                  @click="showDetails(data.id)"
+                  type="button"
+                  class="btn btn-primary rounded-pill"
+                >
                   See Detail
                 </button>
               </div>
@@ -63,15 +67,14 @@ const showMore = () => {
           </div>
         </div>
         <div v-if="loadMoreVisible" class="text-center">
-          <button @click="showMore()" type="button" class="btn btn-dark rounded-pill">Load more</button>
+          <button @click="showMore()" type="button" class="btn btn-dark rounded-pill">
+            Load more
+          </button>
         </div>
       </template>
       <template v-else>
-        <div>
-          No breed selected
-        </div>
+        <div>No breed selected</div>
       </template>
-
     </section>
   </div>
 </template>

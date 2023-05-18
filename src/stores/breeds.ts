@@ -19,5 +19,5 @@ export const useBreedStore = defineStore('breeds', {
   getters: {
     GET_breeds: (state) => state.breeds,
     GET_selectedBreed: (state) => state.selectedBreed
-  },
+  }
 })

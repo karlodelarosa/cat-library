@@ -49,6 +49,6 @@ export const useCatsStore = defineStore('cats', {
     GET_selectedCatsByBreed: (state) => state.selectedCatsByBreed,
     GET_loadMoreStatus: (state) => state.isLoadMoreVisible,
     GET_selectedCatId: (state) => state.selectedCatId,
-    GET_selectedCatInfo: (state) => state.selectedCatInfo,
-  },
+    GET_selectedCatInfo: (state) => state.selectedCatInfo
+  }
 })

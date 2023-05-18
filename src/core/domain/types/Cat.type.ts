@@ -1,9 +1,9 @@
 export interface CatId {
-    id: string
+  id: string
 }
 
 export interface BreedParams {
-    page: number,
-    limit: number,
-    breed_id: string
+  page: number
+  limit: number
+  breed_id: string
 }

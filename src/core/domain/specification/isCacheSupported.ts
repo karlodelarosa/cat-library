@@ -1,3 +1,3 @@
 export const isCacheSupported = () => {
-    return 'caches' in window
+  return 'caches' in window
 }

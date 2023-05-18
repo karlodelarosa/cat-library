@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useAlertStore = defineStore('alert', {
   state: () => {
     return {
-      isErrorAlertVisible: false,
+      isErrorAlertVisible: false
     }
   },
   actions: {
@@ -14,5 +14,5 @@ export const useAlertStore = defineStore('alert', {
 
   getters: {
     GET_errorAlertStatus: (state) => state.isErrorAlertVisible
-  },
+  }
 })
