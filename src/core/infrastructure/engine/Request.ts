@@ -32,8 +32,11 @@ export default class Request {
     }
   }
 
-  requestGet(params: {}) {
-    return this.getRequests._get(this.getUrl(), params)
+  async requestGet(params: {}) {
+    const { data, status } = await this.getRequests._get(this.getUrl(), params)
+    if (isOk(status)) {
+      return data
+    }
   }
 
   protected requestPost(params: {}) {

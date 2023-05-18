@@ -17,8 +17,4 @@ export default class BreedRepository {
     async fetchAll() {
         return await this.request.setUrl(this.requestUrl).requestGetAll()
     }
-
-    fetchById(params: Id) {
-        // return this.apiRequest.get(this.requestUrl, params)
-    }
 }

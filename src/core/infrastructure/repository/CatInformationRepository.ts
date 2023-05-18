@@ -1,24 +1,25 @@
-// import type { Id } from "@/core/domain/types/Id.type"
-// import ApiRequest from "@/core/infrastructure/engine/ApiRequest"
+import type { CatId, BreedParams } from "@/core/domain/types/Cat.type";
+import Request from "../engine/Request";
 
-// /*
-// * Repository classes helps you identify what kind
-// * of information your are requesting
-// */
-// export default class CatInformationRepository {
-//     protected apiRequest: ApiRequest
-//     protected requestUrl: string = ''
+/*
+* Repository classes helps you identify what kind
+* of information your are requesting
+*/
 
-//     constructor(requestUrl: string) {
-//         this.apiRequest = new ApiRequest()
-//         this.requestUrl = requestUrl;
-//     }
+export default class CatInformationRepository {
+    protected request: Request
+    protected requestUrl: string = ''
 
-//     fetchAll() {
-//         this.apiRequest.get(this.requestUrl)
-//     }
+    constructor(requestUrl: string) {
+        this.request = new Request()
+        this.requestUrl = requestUrl;
+    }
 
-//     fetchById(params: Id) {
-//         this.apiRequest.get(this.requestUrl, params)
-//     }
-// }
+    async fetchByBreedId(params: BreedParams) {
+        return await this.request.setUrl(this.requestUrl).requestGet(params)
+    }
+
+    async fetchByCatId(params: string) {
+        return await this.request.setUrl(`${this.requestUrl}/${params}`).requestGetAll()
+    }
+}

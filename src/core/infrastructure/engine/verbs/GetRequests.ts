@@ -1,20 +1,24 @@
 import axios from 'axios'
 import type { ApiRequiredResponse } from '@/core/domain/types/ApiResponse.type'
+import { useAlertStore } from '@/stores/alert'
 
 /*
 * GetRequests class is responsible for requesting to and API endpoint
 * This class should run GET requests only
 */
 export default class GetRequests {
-  async _get(url: string, params: {}): Promise<object> {
-    return new Promise((resolve, reject) => {
-      axios.get(url)
-        .then(result => {
-
-        })
-        .catch(error => {
-
-        })
+  async _get(url: string, params: {}): Promise<ApiRequiredResponse> {
+    return await new Promise((resolve, reject) => {
+      axios.get(url, { params: params })
+      .then(result => {
+        resolve(result)
+      })
+      .catch(error => {
+        const store = useAlertStore()
+        store.setErrorAlertStatus(true)
+        console.error(error)
+        reject(error)
+      })
     })
   }
 
@@ -25,6 +29,8 @@ export default class GetRequests {
         resolve(result)
       })
       .catch(error => {
+        const store = useAlertStore()
+        store.setErrorAlertStatus(true)
         console.error(error)
         reject(error)
       })

@@ -1,14 +1,14 @@
 export interface ApiStatusResponse {
-    status: number
+  status: number
 }
 
 export interface ApiRequiredResponse extends ApiStatusResponse {
-    data: object
+  data: object
 }
 
 export interface ApiResponse extends ApiRequiredResponse {
-    config: object
-    header: object
-    request: object
-    statusText: string
+  config: object
+  header: object
+  request: object
+  statusText: string
 }
