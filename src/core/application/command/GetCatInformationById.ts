@@ -12,7 +12,7 @@ export default class GetCatInformationById implements CommandInterface {
     this.catId = catId
   }
 
-  async handle() {
+  async handle(): Promise<void> {
     const store = useCatsStore()
     const catInformationRepository = new CatInformationRepository(
       `https://api.thecatapi.com/v1/images`

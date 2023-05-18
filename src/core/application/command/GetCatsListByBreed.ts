@@ -13,7 +13,7 @@ export default class GetCatsListByBreed implements CommandInterface {
     this.selectedBreed = breed
   }
 
-  async handle() {
+  async handle(): Promise<void> {
     const store = useCatsStore()
     const selectedCats = computed(() => store.GET_selectedCatsByBreed)
     const catInformationRepository = new CatInformationRepository(
