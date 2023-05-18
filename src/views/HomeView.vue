@@ -3,10 +3,10 @@ import { watch, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useBreedStore } from '@/stores/breeds'
 import { useCatsStore } from '@/stores/cats'
-import FormGroup from '@/components/molecule/FormGroup.vue'
-import SelectBreeds from '@/components/atom/SelectBreeds.vue'
 import Cat from '@/core/application/Cat'
+import FormGroup from '@/components/molecule/FormGroup.vue'
 import GetCatsListByBreed from '@/core/application/command/GetCatsListByBreed'
+import SelectBreeds from '@/components/atom/SelectBreeds.vue'
 
 const breedStore = useBreedStore()
 const catStore = useCatsStore()

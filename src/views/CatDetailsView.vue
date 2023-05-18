@@ -4,9 +4,8 @@ import { useRouter, useRoute } from 'vue-router'
 import { useCatsStore } from '@/stores/cats'
 import Cat from '@/core/application/Cat'
 import GetCatInformationById from '@/core/application/command/GetCatInformationById'
+import LeftArrow from '@/components/atom/svg/LeftArrow.vue'
 import StarRating from '@/components/atom/StarRating.vue'
-import HeartOutlined from '@/components/atom/svg/HeartOutlined.vue'
-import HeartColored from '@/components/atom/svg/HeartColored.vue'
 
 const store = useCatsStore()
 const route = useRoute()
@@ -27,24 +26,12 @@ const catInfo: any = computed(() => store.GET_selectedCatInfo)
     <div class="container py-3">
       <section class="search_form mb-4">
         <button @click="back()" type="button" class="btn btn-default-flat">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-arrow-left"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-            />
-          </svg>
+          <LeftArrow />
           Back
         </button>
       </section>
 
-      <section class="shadow">
+      <section v-if="catInfo" class="shadow">
         <div class="row">
           <div class="col-md-12">
             <div class="card overflow-hiden">
