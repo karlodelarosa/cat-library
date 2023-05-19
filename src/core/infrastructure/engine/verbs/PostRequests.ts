@@ -2,8 +2,7 @@ import axios from 'axios'
 import Request from '../Request'
 
 /*
- * PostRequests class is responsible for requesting to and API endpoint
- * This class should run GET requests only
+ * PostRequests class is responsible for requesting POST requests only
  */
 export default class PostRequests {
   async _post(params: {}): Promise<object> {

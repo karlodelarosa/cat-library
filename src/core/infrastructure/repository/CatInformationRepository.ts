@@ -1,9 +1,9 @@
 import type { CatId, BreedParams } from '@/core/domain/types/Cat.type'
 import Request from '../engine/Request'
 
-/*
- * Repository classes helps you identify what kind
- * of information your are requesting
+/**
+ * Repository classes helps you identify what kind of information your are requesting
+ * Handles request related to Cat information only
  */
 
 export default class CatInformationRepository {

@@ -4,12 +4,16 @@ import type CommandInterface from '@/core/domain/contract/CommandInterface'
 import CatInformationRepository from '@/core/infrastructure/repository/CatInformationRepository'
 import { API_SEARCH_BY_BREED } from '@/core/infrastructure/Constants'
 
+/**
+ * This is a Command class which only does one task.
+ * The task is to get the list of cats in the same breed
+ */
 export default class GetCatsListByBreed implements CommandInterface {
   protected selectedBreed: string = ''
 
   constructor(breed: string = '') {
     if (!breed) {
-      throw new Error('No breed specified!')
+      throw new Error('No breed was specified!')
     }
     this.selectedBreed = breed
   }

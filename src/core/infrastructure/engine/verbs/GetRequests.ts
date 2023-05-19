@@ -3,8 +3,7 @@ import type { ApiRequiredResponse } from '@/core/domain/types/ApiResponse.type'
 import { useAlertStore } from '@/stores/alert'
 
 /*
- * GetRequests class is responsible for requesting to and API endpoint
- * This class should run GET requests only
+ * GetRequests class is responsible for requesting GET requests only
  */
 export default class GetRequests {
   async _get(url: string, params: {}): Promise<ApiRequiredResponse> {

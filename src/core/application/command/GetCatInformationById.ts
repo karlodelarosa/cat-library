@@ -3,12 +3,16 @@ import CatInformationRepository from '@/core/infrastructure/repository/CatInform
 import { useCatsStore } from '@/stores/cats'
 import { API_SEARCH_BY_ID } from '@/core/infrastructure/Constants'
 
+/**
+ * This is a Command class which only does one task.
+ * The task is to get Cat information using Cat id
+ */
 export default class GetCatInformationById implements CommandInterface {
   protected catId: string = ''
 
   constructor(catId: string = '') {
     if (!catId) {
-      throw new Error('No breed specified!')
+      throw new Error('No id was specified!')
     }
     this.catId = catId
   }

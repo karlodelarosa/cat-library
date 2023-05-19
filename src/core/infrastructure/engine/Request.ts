@@ -4,7 +4,7 @@ import { isOk } from '@/core/domain/specification/isOk'
 
 /*
  * Request class the official handler for API requests
- * This is where urls are being set and calls api verbs
+ * This is where urls are being set and call api verbs
  */
 export default class Request {
   protected url: string = ''
