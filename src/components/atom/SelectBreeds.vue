@@ -2,7 +2,7 @@
 import { ref, watch, computed } from 'vue'
 import { useBreedStore } from '@/stores/breeds'
 const store = useBreedStore()
-const breeds: any = store.GET_breeds
+const breeds: any = computed(() => store.GET_breeds)
 const currentBreedSelected = computed(() => store.GET_selectedBreed)
 const breedSelection = ref(currentBreedSelected.value)
 
