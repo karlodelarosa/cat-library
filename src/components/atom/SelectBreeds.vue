@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useBreedStore } from '@/stores/breeds'
 const store = useBreedStore()
 const breeds: any = store.GET_breeds
-
-const breedSelection = ref('')
+const currentBreedSelected = computed(() => store.GET_selectedBreed)
+const breedSelection = ref(currentBreedSelected.value)
 
 watch(breedSelection, (newVal) => {
   store.setSelectedBreed(newVal)
